@@ -27,7 +27,6 @@
                 <tr>
                     <th scope="col">#</th>
                     <th scope="col">Name</th>
-                    <th scope="col">Description</th>
                     <th scope="col">Released</th>
                     <th scope="col">Age limit</th>
                     <th scope="col">Duration</th>
@@ -37,8 +36,8 @@
                 <tbody>
                 <tr th:each="film: ${films}">
                     <td th:text="${film.id}"/>
-                    <td th:text="${film.name}"/>
-                    <td th:text="${film.description}"/>
+                    <td><a th:text="${film.name}"
+                           th:href="@{/films/{filmId}(filmId=${film.id})}"></a></td>
                     <td th:text="${film.year}"/>
                     <td th:text="${film.minAge}"/>
                     <td th:text="${film.duration}"/>

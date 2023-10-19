@@ -25,8 +25,18 @@ public class SimpleFilmService implements FilmService {
 
     @Override
     public Optional<FilmDto> findById(int id) {
-        Optional<FilmDto> optionalFilmDto = Optional.empty();
-        return optionalFilmDto;
+        var optionalFilmDto = filmRepository.findById(id);
+        if (optionalFilmDto.isEmpty()) {
+            return Optional.empty();
+        }
+
+        return Optional.of(new FilmDto(optionalFilmDto.get().getId(),
+                optionalFilmDto.get().getName(),
+                optionalFilmDto.get().getDescription(),
+                optionalFilmDto.get().getYear(),
+                optionalFilmDto.get().getMinAge(),
+                optionalFilmDto.get().getDuration(),
+                genreRepository.findById(optionalFilmDto.get().getGenreId()).get().getName()));
     }
 
     @Override
