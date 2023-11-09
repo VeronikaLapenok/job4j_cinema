@@ -24,10 +24,11 @@
             <table class="table">
                 <tbody>
                 <tr>
-                    <td style="width:450px"><img th:src="@{/files/{fileId}(fileId=${film.fileId})}" class="w-100" alt="no image">
+                    <td style="width:450px"><img th:src="@{/files/{fileId}(fileId=${film.fileId})}" class="w-100"
+                                                 alt="No image">
                     </td>
                     <td>
-                        <table class="table table-striped table-dark">
+                        <table class="table table-striped table-light">
                             <tr>
                                 <td>
                                     <p class="text-secondary m-1">Name:</p>
@@ -42,7 +43,7 @@
                             <tr>
                                 <td>
                                     <p class="text-secondary m-1">Release:</p>
-                                    <p th:text="${film.filmYear}"></p>
+                                    <p th:text="${film.year}"></p>
                                 </td>
                             </tr>
                             <tr>
@@ -54,13 +55,13 @@
                             <tr>
                                 <td>
                                     <p class="text-secondary m-1">Age limit:</p>
-                                    <p th:text="${film.minimalAge}"></p>
+                                    <p th:text="${film.minAge}"></p>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
                                     <p class="text-secondary">Duration (min):</p>
-                                    <p th:text="${film.durationInMinutes}"></p>
+                                    <p th:text="${film.duration}"></p>
                                 </td>
                             </tr>
                         </table>

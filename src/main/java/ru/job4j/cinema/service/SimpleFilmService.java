@@ -31,6 +31,7 @@ public class SimpleFilmService implements FilmService {
         }
 
         return Optional.of(new FilmDto(optionalFilmDto.get().getId(),
+                optionalFilmDto.get().getFileId(),
                 optionalFilmDto.get().getName(),
                 optionalFilmDto.get().getDescription(),
                 optionalFilmDto.get().getYear(),
@@ -43,8 +44,8 @@ public class SimpleFilmService implements FilmService {
     public Collection<FilmDto> findAll() {
         List<FilmDto> filmDtoList = new ArrayList<>();
         for (Film film : filmRepository.findAll()) {
-            filmDtoList.add(new FilmDto(film.getId(), film.getName(), film.getDescription(),
-                    film.getYear(), film.getMinAge(), film.getDuration(),
+            filmDtoList.add(new FilmDto(film.getId(), film.getFileId(), film.getName(),
+                    film.getDescription(), film.getYear(), film.getMinAge(), film.getDuration(),
                     genreRepository.findById(film.getId()).get().getName()));
         }
         return filmDtoList;
