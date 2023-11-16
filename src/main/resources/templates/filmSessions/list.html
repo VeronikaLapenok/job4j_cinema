@@ -18,6 +18,35 @@
   <title>Film sessions</title>
 </head>
 <body>
-
+<div class="container-fluid p-0">
+  <header th:insert="blocks/header :: header"></header>
+  <div class="container">
+    <div class="row">
+      <table class="table">
+        <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Film name</th>
+          <th scope="col">Hall</th>
+          <th scope="col">Start</th>
+          <th scope="col">End</th>
+          <th scope="col">Price</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="filmSession: ${filmSessions}">
+          <td th:text="${filmSession.id}"/>
+          <td th:text="${filmSession.film}"/>
+          <td th:text="${filmSession.hall}"/>
+          <td th:text="${filmSession.start}"/>
+          <td th:text="${filmSession.end}"/>
+          <td th:text="${filmSession.price}"/>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <footer class="text-lg-start fixed-bottom" th:insert="blocks/footer :: footer"></footer>
+</div>
 </body>
 </html>
