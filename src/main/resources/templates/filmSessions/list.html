@@ -25,7 +25,6 @@
       <table class="table">
         <thead>
         <tr>
-          <th scope="col">#</th>
           <th scope="col">Film name</th>
           <th scope="col">Hall</th>
           <th scope="col">Start</th>
@@ -35,12 +34,17 @@
         </thead>
         <tbody>
         <tr th:each="filmSession: ${filmSessions}">
-          <td th:text="${filmSession.id}"/>
           <td th:text="${filmSession.film}"/>
           <td th:text="${filmSession.hall}"/>
           <td th:text="${filmSession.start}"/>
           <td th:text="${filmSession.end}"/>
           <td th:text="${filmSession.price}"/>
+          <td>
+            <div class="col-6">
+              <a style="background-color: orange;" class="btn w-100" th:href="@{/tickets/{buy}
+              (buy=${filmSession.id})}">Buy a ticket</a>
+            </div>
+          </td>
         </tr>
         </tbody>
       </table>
